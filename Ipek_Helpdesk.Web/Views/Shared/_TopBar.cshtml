@@ -7,14 +7,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="~/"><i class="fa fa-cubes"></i> Ipek_Helpdesk</a>
+            <a class="navbar-brand" href="~/"><i class="glyphicon glyphicon-fire"></i> Ipek_Helpdesk</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                @Html.Action("TopMenu", "Layout", new { activeMenu = ViewBag.ActiveMenu })
+                @*@Html.Action("TopMenu", "Layout", new { activeMenu = ViewBag.ActiveMenu })*@
+                <li>
+                    <a href="~/Moderator"><span class="glyphicon glyphicon-cog"></span> Moderator</a>
+                </li>
+                <li>
+                    <a href="~/Agent"><span class="glyphicon glyphicon-user"></span> Agent</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @Html.Action("LanguageSelection", "Layout")
+                @*@Html.Action("LanguageSelection", "Layout")*@
             </ul>
         </div>
     </div>

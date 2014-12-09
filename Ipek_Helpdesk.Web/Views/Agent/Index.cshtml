@@ -1,0 +1,46 @@
+﻿@model List<Ipek_Helpdesk.Tickets.TicketDto>
+@{
+    ViewBag.ActiveMenu = "Agent"; //The menu item will be active for this page.
+}
+
+<h2>
+    Ticket <small>Agent</small>
+</h2>
+<hr />
+
+<p id="View">
+
+</p>
+
+<hr />
+<div id="List">
+    @Html.Partial("Agent/_List", Model)
+</div>
+
+
+
+<script type="text/javascript">
+    function View(id, refId) {
+        var url = "@Url.Action("View", "Agent")" + "/" + id + "/" + refId;
+        $('#View').load(url);
+        toastr.success('Successfully loaded...');
+    }
+
+    function Close() {
+        $.ajax({
+            type: "POST",
+            url: "/Agent/Close",
+            data: $("#form").serialize(),
+            success: function (agent) {
+                var url = "@Url.Action("GetAll", "Agent")" + "/" + agent;
+                $("#List").load(url);
+                $("#View").html(null);
+                toastr.success('Successfully closed...');
+            },
+            error: function () {
+                toastr.error("Something went wrong.");
+            }
+        });
+    }
+</script>
+

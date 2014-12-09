@@ -16,8 +16,8 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -40,9 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Abp, Version=0.4.4.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Abp, Version=0.4.4.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Abp.0.4.4.1\lib\net451\Abp.dll</HintPath>
+      <HintPath>..\packages\Abp.0.4.4.2\lib\net451\Abp.dll</HintPath>
     </Reference>
     <Reference Include="Abp.Web, Version=0.4.4.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,6 +97,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\EWS-Api-2.1.1.0.0\lib\net35\Microsoft.Exchange.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Exchange.WebServices.Auth">
+      <HintPath>..\packages\EWS-Api-2.1.1.0.0\lib\net35\Microsoft.Exchange.WebServices.Auth.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -264,6 +271,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <None Include="Properties\PublishProfiles\appsrv.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -296,15 +304,16 @@
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Moderator\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\Ipek_HelpdeskNavigationProvider.cs" />
     <Compile Include="App_Start\Ipek_HelpdeskWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\EnduserController.cs" />
+    <Compile Include="Controllers\AgentController.cs" />
+    <Compile Include="Controllers\ModeratorController.cs" />
     <Compile Include="ViewModels\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\Ipek_HelpdeskControllerBase.cs" />
@@ -318,12 +327,18 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Agent\Index.cshtml" />
     <Content Include="Views\Shared\_TopBar.cshtml" />
     <Content Include="Views\Layout\_LanguageSelection.cshtml" />
     <Content Include="Views\Layout\_TopMenu.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\testing.cshtml" />
+    <Content Include="Views\Shared\Moderator\_View.cshtml" />
+    <Content Include="Views\Shared\Moderator\_List.cshtml" />
+    <Content Include="Views\Shared\Moderator\_Assign.cshtml" />
+    <Content Include="Views\Shared\Agent\_List.cshtml" />
+    <Content Include="Views\Shared\Agent\_View.cshtml" />
+    <Content Include="Views\Shared\Agent\_Close.cshtml" />
+    <Content Include="Views\Shared\Enduser\_Reopen.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -331,8 +346,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="Views\Shared\EditorTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ipek.App.Utils\Ipek.App.Utils.csproj">
+      <Project>{6346d96d-5202-4e34-840b-21086093f0a4}</Project>
+      <Name>Ipek.App.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ipek_Helpdesk.Application\Ipek_Helpdesk.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>Ipek_Helpdesk.Application</Name>

@@ -1,0 +1,49 @@
+﻿@model List<Ipek_Helpdesk.Tickets.TicketDto>
+
+<style type="text/css">
+    .bold { font-weight: bold; }
+</style>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Subject</th>
+            <th>Sender</th>
+            <th>Sent</th>
+            <th>Assgn.</th>
+            <th>Agent</th>
+            <th>Closed</th>
+            <th>(Hrs)</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            var assignTime = ticket.AssignTime == null ? string.Empty : ((DateTime)ticket.AssignTime).ToString("MMM d HH:mm");
+            var closingTime = ticket.ClosingTime == null ? string.Empty : ((DateTime)ticket.ClosingTime).ToString("MMM d HH:mm");
+            var cssClass = ticket.IsClosed ? "text-success" : ticket.ResponseTime > 8 ? "text-danger" : ticket.AssignedTo == null ? "text-info bold" : "text-warning";
+            var hidePoke = ticket.AssignedTo == null || ticket.ResponseTime < 8 ? "hidden" : string.Empty;
+            <tr class="@cssClass">
+                <td>
+                    <a href="javascript: View(@ticket.Id);" title="@ticket.History">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                <td>@ticket.Subject</td>
+                <td>@ticket.CreatedBy</td>
+                <td>@ticket.CreationTime.ToString("MMM d HH:mm")</td>
+                <td>@assignTime</td>
+                <td>@ticket.AssignedTo <a href="javascript:PokeAgent(@ticket.Id)" onclick="return confirm('Want to poke the agent?');" class="@hidePoke"><span class="glyphicon glyphicon-hand-left"></span></a></td>
+                <td>@closingTime</td>
+                <td>@ticket.ResponseTime</td>
+                <td>
+                    <a href="javascript: Delete(@ticket.Id);" onclick="return confirm('You sure you want to delete?');" style="padding-right: 15px;">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,73 @@
+﻿@model List<Ipek_Helpdesk.Tickets.TicketDto>
+
+
+<h2>
+    Ticket <small>Moderator</small>
+</h2>
+<hr />
+
+<p id="ViewOrAssign">
+
+</p>
+
+<hr />
+<div id="List">
+    @Html.Partial("Moderator/_List", Model)
+</div>
+
+
+
+<script type="text/javascript">
+    function View(id) {
+        var url = "@Url.Action("View", "Moderator")" + "/" + id;
+        $('#ViewOrAssign').load(url);
+        toastr.success('Successfully loaded...');
+    }
+
+    function Assign(id) {
+        var url = "@Url.Action("Assign", "Moderator")" + "/" + id;
+        $('#ViewOrAssign').load(url);
+        toastr.success('Successfully loaded...');
+    }
+
+    function PokeAgent(id) {
+        var url = "@Url.Action("PokeAgent", "Moderator")" + "/" + id;
+        $('#ViewOrAssign').load(url);
+        toastr.success('Successfully poked...');
+    }
+
+    function Delete(id) {
+        $.ajax({
+            type: "POST",
+            url: "/Moderator/Delete/" + id,
+            success: function () {
+                var url = "@Url.Action("GetAll", "Moderator")";
+                $("#List").load(url);
+                $("#ViewOrAssign").html(null);
+                toastr.success('Successfully deleted...');
+            },
+            error: function () {
+                var message = "<div class='alert alert-danger' role='alert'>Something went wrong.</div>";
+                $("#ViewOrAssign").html(message);
+                toastr.error(message);
+            }
+        });
+    }
+
+    function Submit() {
+        $.ajax({
+            type: "POST",
+            url: "/Moderator/Assign",
+            data: $("#form").serialize(),
+            success: function () {
+                var url = "@Url.Action("GetAll", "Moderator")";
+                $("#List").load(url);
+                $("#ViewOrAssign").html(null);
+                toastr.success('Successfully assigned...');
+            },
+            error: function () {
+                toastr.error("Something went wrong.");
+            }
+        });
+    }
+</script>

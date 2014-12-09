@@ -1,0 +1,24 @@
+﻿@model Ipek_Helpdesk.Tickets.TicketDto
+@{
+    var hiddenClass = Model.IsClosed ? "hidden" : string.Empty;  
+}
+<dl class="dl-horizontal">
+    <dt>Sender</dt> <dd>@Model.CreatedBy</dd>
+    <dt>Subject</dt> <dd>@Model.Subject</dd>
+    <dt>User note</dt> <dd>@Model.OwnersReopenMessage</dd>
+    <dt>Message</dt> <dd>@Model.Body</dd>
+</dl>
+
+<hr/>
+
+<h2>Ready to <small>close?</small> </h2>
+<form id="form">
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.RefId)
+    @Html.TextAreaFor(m => m.AgentClosingMessage, 3, 159, new { placeholder = "Agent notes..." })
+    <p style="text-align: center; padding-top: 15px;" class="@hiddenClass">
+        <a href="javascript: Close();" class="btn btn-success">
+            <span class="glyphicon glyphicon-ok"></span> Close
+        </a>
+    </p>
+</form>

@@ -16,16 +16,16 @@ namespace Ipek_Helpdesk.Web
             context.Manager.MainMenu
                 .AddItem(
                     new MenuItemDefinition(
-                        "Home",
-                        new LocalizableString("HomePage", Ipek_HelpdeskConsts.LocalizationSourceName),
-                        url: "/",
+                        "Moderator",
+                        new LocalizableString("Moderator", Ipek_HelpdeskConsts.LocalizationSourceName),
+                        url: "/Moderator",
                         icon: "fa fa-home"
                         )
                 ).AddItem(
                     new MenuItemDefinition(
-                        "About",
-                        new LocalizableString("About", Ipek_HelpdeskConsts.LocalizationSourceName),
-                        url: "/About",
+                        "Agent",
+                        new LocalizableString("Agent", Ipek_HelpdeskConsts.LocalizationSourceName),
+                        url: "/Agent",
                         icon: "fa fa-info"
                         )
                 );

@@ -14,11 +14,11 @@ namespace Ipek_Helpdesk.Web
             bundles.Add(
                 new StyleBundle("~/Bundles/vendor/css")
                     .Include(
-                        "~/Content/themes/base/all.css",
-                        "~/Content/bootstrap-cosmo.min.css",
-                        "~/Content/toastr.min.css",
-                        "~/Content/flags/famfamfam-flags.css",
-                        "~/Content/font-awesome.min.css"
+                        //"~/Content/themes/base/all.css",
+                        //"~/Content/bootstrap-cosmo.min.css",
+                        "~/Content/toastr.min.css"
+                        //"~/Content/flags/famfamfam-flags.css",
+                        //"~/Content/font-awesome.min.css"
                     )
                 );
 
@@ -35,25 +35,21 @@ namespace Ipek_Helpdesk.Web
             bundles.Add(
                 new ScriptBundle("~/Bundles/vendor/js/bottom")
                     .Include(
-                        "~/Scripts/json2.min.js",
-
-                        "~/Scripts/jquery-2.1.1.min.js",
-                        "~/Scripts/jquery-ui-1.11.2.min.js",
-
-                        "~/Scripts/bootstrap.min.js",
-
-                        "~/Scripts/moment-with-locales.min.js",
+                        //"~/Scripts/json2.min.js",
+                        //"~/Scripts/jquery-2.1.1.min.js",
+                        //"~/Scripts/jquery-ui-1.11.2.min.js",
+                        //"~/Scripts/bootstrap.min.js",
+                        //"~/Scripts/moment-with-locales.min.js",
                         "~/Scripts/jquery.validate.min.js",
-                        "~/Scripts/jquery.blockUI.min.js",
+                        //"~/Scripts/jquery.blockUI.min.js",
                         "~/Scripts/toastr.min.js",
-                        "~/Scripts/others/spinjs/spin.js",
-                        "~/Scripts/others/spinjs/jquery.spin.js",
-
+                        //"~/Scripts/others/spinjs/spin.js",
+                        //"~/Scripts/others/spinjs/jquery.spin.js",
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",
-                        "~/Abp/Framework/scripts/libs/abp.toastr.js",
-                        "~/Abp/Framework/scripts/libs/abp.blockUI.js",
-                        "~/Abp/Framework/scripts/libs/abp.spin.js"
+                        "~/Abp/Framework/scripts/libs/abp.toastr.js"
+                        //"~/Abp/Framework/scripts/libs/abp.blockUI.js",
+                        //"~/Abp/Framework/scripts/libs/abp.spin.js"
                     )
                 );
 

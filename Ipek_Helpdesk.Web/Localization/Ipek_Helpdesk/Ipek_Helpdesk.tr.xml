@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="tr">
   <texts>
-    <text name="HomePage" value="Ana Sayfa" />
-    <text name="About" value="Hakkında" />
+    <text name="Moderator" value="Moderator" />
+    <text name="Agent" value="Agent" />
     <text name="WellcomeMessage" value="Ipek_Helpdesk projesine hoşgeldiniz!" />
     <text name="Home_ThisIsATemplate" value="Bu proje şablonu, aşağıdaki teknolojileri kullanarak bir web uygulaması geliştirmek için başlangıç noktasıdır:" />
     <text name="Home_AspNetDescription" value="ASP.NET MVC, tasarım desenlerine uygun, kavramların birbirinden net bir şekilde ayırıldığı, size HTML üzerinde tam kontrol sunan, eğlenceli, çevik ve dinamik bir web framework'üdür." />

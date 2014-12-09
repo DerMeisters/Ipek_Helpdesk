@@ -1,13 +1,14 @@
-﻿using Abp.EntityFramework;
-
-namespace Ipek_Helpdesk.EntityFramework
+﻿namespace Ipek_Helpdesk.EntityFramework
 {
+    using System.Data.Entity;
+
+    using Abp.EntityFramework;
+
+    using Ipek_Helpdesk.Tickets;
+
     public class Ipek_HelpdeskDbContext : AbpDbContext
     {
-        //TODO: Define an IDbSet for each Entity...
-
-        //Example:
-        //public virtual IDbSet<User> Users { get; set; }
+        public virtual IDbSet<Ticket> Tickets { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

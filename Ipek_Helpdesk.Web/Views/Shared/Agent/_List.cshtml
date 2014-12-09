@@ -1,0 +1,37 @@
+﻿@model List<Ipek_Helpdesk.Tickets.TicketDto>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Subject</th>
+            <th>Sender</th>
+            <th>Sent</th>
+            <th>Assgn.</th>
+            <th>Closed</th>
+            <th>(Hrs)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var ticket in Model)
+        {
+            var assignTime = ticket.AssignTime == null ? string.Empty : ((DateTime)ticket.AssignTime).ToString("MMM d HH:mm");
+            var closingTime = ticket.ClosingTime == null ? string.Empty : ((DateTime)ticket.ClosingTime).ToString("MMM d HH:mm");
+            var cssClass = ticket.IsClosed ? "text-success" : ticket.ResponseTime > 8 ? "text-danger" : ticket.AssignedTo == null ? "text-info" : "text-muted";
+            <tr class="@cssClass">
+                <td>
+                    <a href="javascript: View(@ticket.Id, '@ticket.RefId');" title="@ticket.History">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                <td>@ticket.Subject</td>
+                <td>@ticket.CreatedBy</td>
+                <td>@ticket.CreationTime.ToString("MMM d HH:mm")</td>
+                <td>@assignTime</td>
+                <td>@closingTime</td>
+                <td>@ticket.ResponseTime</td>
+            </tr>
+        }
+    </tbody>
+</table>
