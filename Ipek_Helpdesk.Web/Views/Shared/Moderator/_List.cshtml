@@ -35,7 +35,7 @@
                 <td>@ticket.CreatedBy</td>
                 <td>@ticket.CreationTime.ToString("MMM d HH:mm")</td>
                 <td>@assignTime</td>
-                <td>@ticket.AssignedTo <a href="javascript:PokeAgent(@ticket.Id)" onclick="return confirm('Want to poke the agent?');" class="@hidePoke"><span class="glyphicon glyphicon-hand-left"></span></a></td>
+                <td>@ticket.AssignedTo <a href="javascript:PokeAgent(@ticket.Id)" onclick="return confirm('Want to poke the agent?');" class="@hidePoke"> <span class="glyphicon glyphicon-hand-left"></span></a></td>
                 <td>@closingTime</td>
                 <td>@ticket.ResponseTime</td>
                 <td>

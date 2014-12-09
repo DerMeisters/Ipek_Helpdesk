@@ -24,6 +24,7 @@
         var url = "@Url.Action("View", "Agent")" + "/" + id + "/" + refId;
         $('#View').load(url);
         toastr.success('Successfully loaded...');
+        window.scrollTo(0, 0);
     }
 
     function Close() {
@@ -36,6 +37,7 @@
                 $("#List").load(url);
                 $("#View").html(null);
                 toastr.success('Successfully closed...');
+                window.scrollTo(0, 0);
             },
             error: function () {
                 toastr.error("Something went wrong.");
