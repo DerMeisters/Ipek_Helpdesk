@@ -15,9 +15,12 @@
 <form id="form">
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.RefId)
-    @Html.TextAreaFor(m => m.AgentClosingMessage, 3, 159, new { placeholder = "Agent notes..." })
+    <dl class="dl-horizontal">
+        <dt>Agent notes</dt>
+        <dd>@Html.TextAreaFor(m => m.AgentClosingMessage, 3, 0, new { @class = "form-control", placeholder = "Agent notes..." })</dd>
+    </dl>
     <p style="text-align: center; padding-top: 15px;" class="@hiddenClass">
-        <a href="javascript: Close();" class="btn btn-success">
+        <a href="javascript: CloseTicket();" class="btn btn-success">
             <span class="glyphicon glyphicon-ok"></span> Close
         </a>
     </p>

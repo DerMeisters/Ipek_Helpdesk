@@ -238,12 +238,12 @@
     </Content>
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="images\abp-logo.png" />
     <Content Include="Content\bootstrap-cosmo.min.css" />
     <Content Include="Content\flags\famfamfam-flags.css" />
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="images\loading.gif" />
     <Content Include="js\main.js" />
     <Content Include="Localization\AbpWeb\AbpWeb.tr.xml" />
     <Content Include="Localization\AbpWeb\AbpWeb.xml" />

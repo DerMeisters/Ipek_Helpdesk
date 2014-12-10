@@ -7,7 +7,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <div style="margin: auto; width: 1140px;">
-    <h2>Helpdesk <small>ticket</small> </h2>
+    <h2>Ipek <small>Helpdesk</small> </h2>
     <hr />
 
     <dl class="dl-horizontal">
@@ -26,7 +26,10 @@
     <form id="form">
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.RefId)
-        @Html.TextAreaFor(m => m.OwnersReopenMessage, 3, 159, new { placeholder = "Re-opening reason..." })
+        <dl class="dl-horizontal">
+            <dt>Re-open reason</dt>
+            <dd>@Html.TextAreaFor(m => m.OwnersReopenMessage, 3, 0, new { @class = "form-control", placeholder = "Re-opening reason..." })</dd>
+        </dl>
         <p id="btnOpen" style="text-align: center; padding-top: 15px;" class="@hiddenClass">
             <a href="javascript: Reopen();" class="btn btn-success">
                 <span class="glyphicon glyphicon-ok"></span> Re-open

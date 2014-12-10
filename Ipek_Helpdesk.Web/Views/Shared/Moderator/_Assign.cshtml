@@ -6,7 +6,7 @@
 <form id="form">
     @Html.HiddenFor(model => model.Id)
     <p>
-        <strong>Subject:</strong> @Model.Subject  - <strong>Agent:</strong> @Html.DropDownListFor(m => m.AssignedTo, new SelectList(agentList), new { @class = "form-control", style="width: 199px; display: inline;" })
-        <input id="addNew" type="button" value="Submit" class="btn btn-default" onclick="javascript: Submit();" />
+        <strong>Job:</strong> @Model.Subject  - <strong>Assign to agent:</strong> @Html.DropDownListFor(m => m.AssignedTo, new SelectList(agentList), new { @class = "form-control", style="width: 199px; display: inline;" })
+        <input id="addNew" type="button" value="Assign" class="btn btn-default" onclick="javascript: AssignTicket();" />
     </p>
 </form>

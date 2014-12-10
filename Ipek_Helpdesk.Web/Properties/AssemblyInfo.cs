@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Ipek_Helpdesk.Web")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Ipek Helpdesk by ulker")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Ipek Uni")]
 [assembly: AssemblyProduct("Ipek_Helpdesk.Web")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("ulker")]
 [assembly: AssemblyCulture("")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 

@@ -20,24 +20,28 @@
 
 
 <script type="text/javascript">
-    function View(id, refId) {
+    function ViewTicket(id, refId) {
         var url = "@Url.Action("View", "Agent")" + "/" + id + "/" + refId;
-        $('#View').load(url);
-        toastr.success('Successfully loaded...');
-        window.scrollTo(0, 0);
+        $.get(url, function (result) {
+            $('#View').html(result);
+            toastr.success('Successfully loaded...');
+            window.scrollTo(0, 0);
+        });
     }
 
-    function Close() {
+    function CloseTicket() {
         $.ajax({
             type: "POST",
             url: "/Agent/Close",
             data: $("#form").serialize(),
             success: function (agent) {
                 var url = "@Url.Action("GetAll", "Agent")" + "/" + agent;
-                $("#List").load(url);
-                $("#View").html(null);
-                toastr.success('Successfully closed...');
-                window.scrollTo(0, 0);
+                $.get(url, function (result) {
+                    $('#List').html(result);
+                    $("#View").html(null);
+                    toastr.success('Successfully closed...');
+                    window.scrollTo(0, 0);
+                });
             },
             error: function () {
                 toastr.error("Something went wrong.");
@@ -45,4 +49,3 @@
         });
     }
 </script>
-

@@ -21,7 +21,7 @@
             var cssClass = ticket.IsClosed ? "text-success" : ticket.ResponseTime > 8 ? "text-danger" : ticket.AssignedTo == null ? "text-info" : "text-muted";
             <tr class="@cssClass">
                 <td>
-                    <a href="javascript: View(@ticket.Id, '@ticket.RefId');" title="@ticket.History">
+                    <a href="javascript: ViewTicket(@ticket.Id, '@ticket.RefId');" title="@ticket.History">
                         <span class="glyphicon glyphicon-eye-open"></span>
                     </a>
                 </td>
