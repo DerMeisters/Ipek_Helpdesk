@@ -92,6 +92,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Ipek.App.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Ipek.App.Utils\bin\Release\Ipek.App.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
       <Private>True</Private>
@@ -189,6 +193,7 @@
     <Content Include="Abp\Framework\styles\abp.css" />
     <Content Include="Abp\Framework\styles\abp.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="bin\Ipek.App.Utils.dll" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -350,10 +355,6 @@
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Ipek.App.Utils\Ipek.App.Utils.csproj">
-      <Project>{6346d96d-5202-4e34-840b-21086093f0a4}</Project>
-      <Name>Ipek.App.Utils</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ipek_Helpdesk.Application\Ipek_Helpdesk.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>Ipek_Helpdesk.Application</Name>
