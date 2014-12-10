@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Ipek Helpdesk">
+    <meta name="author" content="ulker">
 
     <link rel="shortcut icon" href="~/favicon.ico">
 
@@ -16,7 +16,17 @@
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/cosmo/bootstrap.min.css" rel="stylesheet" />
     @Styles.Render("~/Bundles/vendor/css")
     @Styles.Render("~/Bundles/css")
-
+    <style type="text/css">
+        
+#loader{
+  position: absolute; right: 0px; top: 63px; 
+  background-color: maroon; color: white; 
+  margin: 5px;padding: 10px;
+}
+span > div#loader {
+  position: fixed;
+}
+    </style>
     <!-- View specific styles -->
     @RenderSection("styles", required: false)
 
@@ -35,8 +45,11 @@
 </head>
 <body>
     @Html.Partial("_TopBar")
-    <div id="loader" class="alert alert-warning text-center" style="margin: auto; width: 233px;" role="alert">
-        <img src="~/images/loading.gif" /> Please wait...</div>
+    <span>
+        <div id="loader">
+            <img src="~/images/loading.gif" /> Please wait...
+        </div>
+    </span>
     <div class="container">
         @RenderBody()
     </div>
